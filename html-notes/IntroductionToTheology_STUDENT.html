@@ -1,0 +1,290 @@
+<title>Introduction to Theology — STUDENT EDITION</title>
+<style>
+  :root {
+    --ink: #ede3cf; --ink-soft: #cdbfa4; --paper: #211c16; --paper-raised: #2a241c;
+    --line: rgba(237,227,207,0.16); --wine: #c17a4d; --wine-soft: #c17a4d1c;
+    --gold: #d6ad5c; --gold-soft: #d6ad5c1a; --muted: #a3947a;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ink: #2a2318; --ink-soft: #4d4330; --paper: #f4ecdb; --paper-raised: #ffffff;
+      --line: rgba(42,35,24,0.15); --wine: #9c4f27; --wine-soft: #9c4f2714;
+      --gold: #8a6414; --gold-soft: #8a641414; --muted: #7a6c52; color-scheme: light;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #ede3cf; --ink-soft: #cdbfa4; --paper: #211c16; --paper-raised: #2a241c;
+    --line: rgba(237,227,207,0.16); --wine: #c17a4d; --wine-soft: #c17a4d1c;
+    --gold: #d6ad5c; --gold-soft: #d6ad5c1a; --muted: #a3947a;
+  }
+  :root[data-theme="light"] {
+    --ink: #2a2318; --ink-soft: #4d4330; --paper: #f4ecdb; --paper-raised: #ffffff;
+    --line: rgba(42,35,24,0.15); --wine: #9c4f27; --wine-soft: #9c4f2714;
+    --gold: #8a6414; --gold-soft: #8a641414; --muted: #7a6c52;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--wine-soft); }
+  h1, h2, h3, h4, .display {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio", serif;
+    text-wrap: balance; font-weight: 400; color: var(--gold); margin: 0;
+  }
+  p { margin: 0 0 1.1em; max-width: 42em; }
+  strong { color: var(--ink); font-weight: 700; }
+  em { color: var(--wine); font-style: italic; }
+  a { color: var(--wine); }
+  header.hero { padding: 60px 24px 44px; text-align: center; border-bottom: 1px solid var(--line); }
+  header.hero .eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--wine); margin-bottom: 12px; }
+  header.hero h1 { font-size: clamp(30px, 4.6vw, 44px); max-width: 20ch; margin: 0 auto 8px; font-style: italic; }
+  header.hero .sub { max-width: 46em; margin: 0 auto 16px; color: var(--ink-soft); font-size: 18px; }
+  header.hero .inst { font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+  header.hero .edition {
+    display: inline-block; margin: 12px 0 10px; padding: 4px 14px; border: 1px solid var(--gold);
+    border-radius: 20px; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+  }
+  header.hero .meta { font-size: 13.5px; color: var(--muted); margin-top: 8px; }
+  header.hero .leitmotif-line { font-size: 14.5px; color: var(--wine); font-style: italic; margin-top: 10px; }
+  nav.chapters {
+    position: sticky; top: 0; z-index: 10; display: flex; gap: 2px; overflow-x: auto;
+    background: var(--paper); border-bottom: 1px solid var(--line); padding: 0 12px;
+  }
+  nav.chapters a {
+    flex: none; padding: 12px 13px; font-size: 13px; text-decoration: none; color: var(--muted);
+    white-space: nowrap; border-bottom: 2px solid transparent;
+  }
+  nav.chapters a:hover { color: var(--wine); border-color: var(--wine-soft); }
+  main { max-width: 780px; margin: 0 auto; padding: 0 24px 40px; }
+  section.chapter { padding: 52px 0 34px; border-bottom: 1px solid var(--line); scroll-margin-top: 50px; }
+  section.chapter:last-of-type { border-bottom: none; }
+  section.chapter h2 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 18px; font-style: italic; }
+  h3.sec { font-size: 20px; color: var(--gold); margin: 28px 0 10px; }
+  ul.plain, ol { padding-left: 1.3em; margin: 0 0 1.1em; max-width: 42em; }
+  ul.plain li, ol li { margin-bottom: 9px; }
+  blockquote {
+    margin: 18px 0; padding: 6px 0 6px 18px; border-left: 3px solid var(--gold);
+    font-style: italic; color: var(--ink-soft); max-width: 40em;
+  }
+  .review { margin-top: 24px; background: var(--gold-soft); border: 1px solid var(--line); border-radius: 3px; padding: 18px 22px; }
+  .review h4 { margin: 0 0 10px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+  .review ol { margin: 0; padding-left: 1.2em; font-size: 16.5px; color: var(--ink-soft); }
+  .cue {
+    background: var(--paper-raised); border: 1px solid var(--line); border-left: 3px solid var(--gold);
+    border-radius: 3px; padding: 14px 18px; margin: 18px 0;
+  }
+  .cue p { margin: 0; font-size: 16.5px; color: var(--ink-soft); }
+  .cue strong { color: var(--gold); }
+  footer.page { max-width: 780px; margin: 0 auto; padding: 34px 24px 60px; font-size: 13.5px; color: var(--muted); }
+</style>
+
+<header class="hero">
+  <p class="eyebrow">BTh &middot; Morning Star Regional Seminary</p>
+  <h1>Introduction to Theology</h1>
+  <p class="sub">The Bush That Burns and Sends — Class Notes for the Bachelor of Theology Programme</p>
+  <div class="inst">Morning Star Regional Seminary, Barrackpore<br/>Affiliated to Jnana-Deepa Pontifical Athenaeum, Pune</div>
+  <div class="edition">STUDENT EDITION</div>
+  <p class="meta">First Year BTh &nbsp;|&nbsp; 4 Credits &nbsp;|&nbsp; 60 Contact Hours &nbsp;|&nbsp; 22 Weeks &nbsp;|&nbsp; 6 Units</p>
+  <p class="leitmotif-line">Leitmotif of the Course: The Burning Bush (Exodus 3)</p>
+</header>
+
+<nav class="chapters">
+  <a href="#welcome">Welcome</a>
+  <a href="#leitmotif">Leitmotif</a>
+  <a href="#aim">Aim, Architecture, Assessment</a>
+  <a href="#unit1">Unit 1</a>
+  <a href="#unit2">Unit 2</a>
+  <a href="#unit3">Unit 3</a>
+  <a href="#unit4">Unit 4</a>
+  <a href="#unit5">Unit 5</a>
+  <a href="#unit6">Unit 6</a>
+  <a href="#closing">Closing</a>
+  <a href="#bibliography">Bibliography</a>
+</nav>
+
+<main>
+
+<section class="chapter" id="welcome">
+<h2>Welcome: You Are Already a Theologian</h2>
+<p>Before You open a single Textbook, You have already done Theology. Every Time You have prayed, doubted, argued about Suffering, or asked what Caste has to do with the Gospel, You were already doing what this Course will now name and discipline. You are not about to acquire a foreign Skill; You are about to become critically aware of a Practice You never actually stood outside of.</p>
+<p>Moses did not go looking for God on Horeb; he was tending Sheep, and a Bush stopped him. <em>"I will turn aside and see this great sight, why the bush is not burnt"</em> (Ex 3:3). Theology begins in exactly that Turning Aside — an ordinary Day interrupted by a Question that will not let You walk past it.</p>
+<p>Three Virtues are asked of You in this Course: <strong>Wonder</strong> before a Mystery no Definition exhausts, <strong>Honesty</strong> about the real Plurality of legitimate Theologies rather than a false Search for one tidy Answer, and <strong>Commitment</strong> — Theology is not a neutral Academic Subject; it is done from inside the believing Community, for the sake of that Community's Mission.</p>
+</section>
+
+<section class="chapter" id="leitmotif">
+<h2>The Leitmotif of the Course: The Burning Bush (Exodus 3)</h2>
+<p>Every Course needs one Text to which it returns until the Text becomes a Habit of Mind. This Course returns to Exodus 3:1&ndash;10, the one biblical Scene that contains, in miniature, everything the six Units will unfold at length.</p>
+<h3 class="sec">Eight Readings of Exodus 3</h3>
+<ul class="plain">
+<li><strong>1. The Bush That Burns and Is Not Consumed (3:2).</strong> The Chapter itself names this as the Paradigm of God-Experience — Theology begins in an Encounter, not a Syllabus.</li>
+<li><strong>2. "Come No Closer; Remove Your Sandals" (3:5).</strong> Holy Ground beneath every theological Sentence — the Hinge into Unit 2's Sources and Resources.</li>
+<li><strong>3. "I Am the God of Your Father, the God of Abraham, Isaac and Jacob" (3:6).</strong> Continuity with a Tradition received, not invented — the Seed of Unit 3's History of Doctrine.</li>
+<li><strong>4. "I Have Seen the Affliction of My People... I Have Heard Their Cry" (3:7).</strong> The Cry of the Poor as a genuine theological Resource — anticipates the Contextual and Liberation Theologies of Units 3 and 6.</li>
+<li><strong>5. "What Is His Name?" (3:13).</strong> Moses himself asks for a Definition — the very Question Unit 1 answers eightfold, and no single Answer closes.</li>
+<li><strong>6. "I AM WHO I AM" (3:14).</strong> The Name that both reveals and withholds — the Root of the Analogical Way and, later, of the Criteria that guard authentic God-Talk in Unit 5.</li>
+<li><strong>7. "Take Off Your Sandals" — a Different Reader in Every Age.</strong> The Bush has been read by Ephraem, Aquinas, Rahner and Abhishiktananda each in a different theological Key — the Seven Models of Unit 4.</li>
+<li><strong>8. "Come, I Will Send You" (3:10).</strong> No Encounter with the Bush ends in Contemplation alone; it ends in a Sending — the Ground of Unit 6's Theologizing in the Indian Context.</li>
+</ul>
+<p><strong>Indian Context:</strong> the Bush is not a distant Semitic Curiosity for the Indian Seminarian. A God who reveals Himself as Fire that does not consume, on Ground that is suddenly Holy though it was ordinary a Moment before, speaks directly into a religious Culture already fluent in Theophany, in Darshan, in the Sudden Sacredness of a Place. The Seminarian does not need to learn what a Burning Bush might mean; he needs only to recognise that he already knows.</p>
+</section>
+
+<section class="chapter" id="aim">
+<h2>Aim, Architecture and Assessment</h2>
+<h3 class="sec">Aim of the Course</h3>
+<p>To move the Student from a vague popular Sense of "Theology" to a working critical Grasp of what Theology is, where it draws its Content from, why it has always existed in more than one legitimate Form, how several major Theologians have actually practised it, what marks the Boundary between legitimate Pluralism and Heterodoxy, and what it means to theologize inside the concrete Realities of India.</p>
+<h3 class="sec">The Four Movements of the Course</h3>
+<p><strong>Movement A</strong> (Units 1&ndash;2): Foundations — what Theology is, and the Sources and Resources it draws upon. <strong>Movement B</strong> (Unit 3): History — the five Periods that produced today's Pluralism. <strong>Movement C</strong> (Unit 4): Models — seven Theologians, seven ways of holding Faith and Culture together. <strong>Movement D</strong> (Units 5&ndash;6): Criteria and Context — what authenticates a Theology as Catholic, and what it means to do that Theology in India.</p>
+<h3 class="sec">Evaluation</h3>
+<p>Continuous Assessment (Class Tests, Seminar Presentation): 40%. End-Semester Examination: 60%, including one compulsory Integration Question requiring the Student to trace one Theme across at least three Units.</p>
+<h3 class="sec">Primary Texts to Be Kept Open</h3>
+<p>Kuncheria Pathil and Dominic Veliath, <em>An Introduction to Theology</em>, Indian Theological Series &middot; Vatican II, <em>Dei Verbum</em> and <em>Gaudium et Spes</em> &middot; the Catechism of the Catholic Church on Revelation and the Magisterium.</p>
+</section>
+
+<section class="chapter" id="unit1">
+<h2>Unit 1: What Is Theology?</h2>
+<p>Theology = <em>theos</em> + <em>logos</em>, God-Talk — but in a World of Secularism, Agnosticism and Atheism, God's Existence cannot be taken for granted. Three Positions divide the Field: the <strong>Atheistic View</strong> (Camus, Marx, Nietzsche, Freud — the Problem of Evil, God as Projection); the <strong>Agnostic View</strong> (the Question itself is not, after all, important); and the <strong>Theistic View</strong>, which the Course endorses — God as the Ultimate Ground of Being, knowable by natural Reason. Aquinas's Five Ways move from Effect to Cause to Prime Mover, but as Newman cautioned, such Proofs offer only <em>"a convergence of diverse probabilities,"</em> not coercive Certainty.</p>
+<h3 class="sec">Can Finite Language Reach an Infinite God?</h3>
+<p>Three Ways of using Words about God: <strong>Univocal</strong> (the same Word, the same Meaning — impossible for God-Talk); <strong>Equivocal</strong> (unrelated Meanings — collapses Theology into Nonsense); and <strong>Analogical</strong> (a Word applying by Proportion, developed by Aristotle and refined by Aquinas). Calling God "our Father" is neither univocal nor equivocal; we purify the earthly Notion of its Limits and apply it to God in an eminent Way.</p>
+<h3 class="sec">Eight Definitions — a Series, Not a Sentence</h3>
+<p>The Chapter refuses a single tidy Definition, stacking eight instead: <strong>Theologia</strong> (Etymology, from Plato to the medieval University); <strong>Faith Seeking Understanding</strong> (Anselm); <strong>Lex Orandi, Lex Credendi</strong> (the Eastern Way); <strong>Theological Anthropology</strong> (Rahner: <em>"whatever we say about God says something about us"</em>); <strong>Critical Reflection on Praxis</strong> (Gutierrez, Orthodoxy to Orthopraxis); <strong>Theology as Hermeneutics</strong>; <strong>Interpretation of the Christian Story</strong> (<em>mythos</em>); and <strong>the Working Definition</strong> — systematic, critical, rooted in Revelation, ecclesial.</p>
+<h3 class="sec">Eight Creative Polarities</h3>
+<p>Theologizing is a set of held Tensions, none resolved by collapsing into one Side: Mystery &harr; Intelligibility &middot; Identity &harr; Change &middot; Committed &harr; Critical &middot; Community &harr; Individual Theologian &middot; One &harr; Many &middot; Universal &harr; Contextual &middot; Orthodoxy &harr; Heterodoxy &middot; Orthodoxy &harr; Orthopraxis. <em>"All theories are tested by praxis; practice in turn challenges the theories that become inadequate."</em></p>
+<p><strong>Indian Context:</strong> Upadhyaya, Abhishiktananda and Panikkar used Vedanta, understanding the Trinity through <em>Saccidananda</em> — an Indian <em>ancilla theologiae</em> placed at the Service of the Christian Mystery exactly as the Greek Fathers once placed the Logos.</p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>State the three Positions on God's Existence and give the theological Objection to each of the first two.</li>
+<li>Name the eight Definitions of Theology given in this Unit and give the Latin Formula attached to Anselm's.</li>
+<li>Choose two of the eight Polarities and show, with an Example from your own Formation, how holding both Sides together (rather than choosing one) has actually shaped your Faith.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="unit2">
+<h2>Unit 2: The Sources of Theology</h2>
+<p>Revelation is God's Self-Communication; Faith is the human Reception and Response — two Sides of the same Event. Vatican II resolved a centuries-long Debate (Luther and Calvin's <em>Sola Scriptura</em> against Trent's "Scripture and unwritten Traditions"): there is, in fact, <strong>one</strong> Source, the Apostolic Tradition, concretely identified through three linked Realities, <em>"so linked and joined together that one cannot stand without the others"</em> (<em>Dei Verbum</em>, 10).</p>
+<ul class="plain">
+<li><strong>Sacred Scripture</strong> — <em>norma normans non normata</em>, the Norm which norms all else and is itself normed by no other Criterion.</li>
+<li><strong>Tradition and Traditions</strong> — six Vehicles: the 22 Individual Churches (India holds two, Syro-Malabar and Syro-Malankara); Liturgy and Sacraments (<em>lex orandi, lex credendi</em>); Creeds; the Fathers of the Church; Dogmas; and Customs, Disciplines, Codes and Catechisms.</li>
+<li><strong>Magisterium</strong> — the College of Bishops in Communion with the Pope.</li>
+</ul>
+<h3 class="sec">Resources — Where God Still Speaks</h3>
+<p>Where the Sources are the normative, historically fixed Media, the Resources are the wider Field read through the Signs of the Times: People and their Experience, Cultural Resources, other Religious Traditions, Peoples' Movements and the Voice of the Marginalized, and the Cry of the Poor. <em>"God speaks today in a very special way through the cry of the poor, their struggles, aspirations, visions and hopes."</em></p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>State the Vatican II Resolution of the historical Debate on the Sources, with a Citation from <em>Dei Verbum</em> 10.</li>
+<li>Name the six Vehicles of Tradition given in this Unit.</li>
+<li>Distinguish a Source from a Resource, and give one Example of each drawn from your own Diocese or Region in India.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="unit3">
+<h2>Unit 3: Development and Pluralism in Theology</h2>
+<p>Why is there not one Theology, but many? Five historical Periods, walked in Order. Pluralism means one Truth approached from more than one legitimate Angle; Relativism denies a single Truth exists at all — <em>"a negation of realism."</em></p>
+<h3 class="sec">The Five Periods</h3>
+<p><strong>Biblical</strong> — the Gospels were written backwards: the earliest Preaching was the bare Kerygma, from which grew the Passion Narrative, and only later the Material on Jesus's earlier Ministry placed in front of it, yielding a Matthean, Marcan, Lucan and Johannine Theology. <strong>Patristic</strong> — three geographic Streams: Semitic (Ephraem), Greek (the Cappadocians), Latin (Augustine); <em>Indian Context:</em> the Syro-Malabar and Syro-Malankara Churches inherit their Ancestry directly from the Semitic-Syriac Stream. <strong>Scholastic</strong> — Anselm, Bernard, Aquinas, Bonaventure, Scotus, Ockham, four Periods organised around university Disputation, Gilson's "cathedrals of the mind." <strong>Post-Scholastic</strong> — the Neo-Scholastic Renewal, the Existentialist Thrust, and the Kairos of Vatican II, where Congar, Daniélou, de Lubac and Rahner opened the Neo-Scholastic Mould from within. <strong>Contextual</strong> — Secularisation, Black Theology, Feminist Theologies, Ecofeminism, <strong>Dalit Theology</strong>, Minjung Theology.</p>
+<p>A necessary Caution: not everything calling itself Contextual is automatically authentically Catholic — tested against the Criteria of Unit 5.</p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>Explain how one Bible contains a Plurality of Theologies, citing the Example of Mark's Gospel.</li>
+<li>Name the three geographic Streams of the Patristic Period and one representative Father of each.</li>
+<li>Dalit Theology is named in this Unit as one Instance of Contextual Theology. State, with a concrete Example, why it could not simply be imported from Latin American Liberation Theology unchanged.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="unit4">
+<h2>Unit 4: Selected Models of Theology</h2>
+<p>Seven Theologians, seven ways Faith and Culture are actually balanced in Practice, presented in historical Order. Four ways to strike the Balance: <strong>Translation Model</strong> (hands on the inherited Tradition); <strong>Anthropological Model</strong> (the local cultural Context); <strong>Synthetic Model</strong> (Tradition and Context, roughly equal); <strong>Transcendental Model</strong> (the theologizing Subject itself).</p>
+<ul class="plain">
+<li><strong>Ephraem</strong> (c.306&ndash;373) — Theology as Poetry, refusing Definitions as a Kind of Blasphemy against the Limitless.</li>
+<li><strong>Schmemann</strong> (1921&ndash;1983) — Liturgical Experience, <em>"theology is best expressed in the form of praise."</em></li>
+<li><strong>Aquinas</strong> (1225&ndash;1274) — Sacred Science, Philosophy as Handmaid.</li>
+<li><strong>Barth</strong> (1886&ndash;1968) — Theology as Response, measured entirely against the Word.</li>
+<li><strong>Rahner</strong> (1904&ndash;1984) — Theological Anthropology, the Supernatural Existential.</li>
+<li><strong>Liberation Theologians</strong> (1970s) — Critical Reflection on Praxis, the "non-person" as primary Interlocutor.</li>
+<li><strong>Abhishiktananda</strong> (1910&ndash;1973) — Advaitic Experience, Theology as realized Experience "within."</li>
+</ul>
+<p><strong>Indian Context:</strong> two of these seven Models are chosen precisely for India — Ephraem, Root of the Syro-Malabar and Syro-Malankara Traditions, and Schmemann's celebrative liturgical Model, shared with all Oriental Traditions. Two more arise directly from the Indian Context: the Praxis Model and Abhishiktananda's contemplative Approach.</p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>Name the four ways of balancing Faith and Culture and give one Theologian representing each.</li>
+<li>State Aquinas's Understanding of Philosophy as "Handmaid" and cite his own Reason for feeling free to change philosophical Frameworks.</li>
+<li>Compare Abhishiktananda's contemplative Model with the Praxis Model, and explain which speaks more directly to your own future Ministry in India, and why.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="unit5">
+<h2>Unit 5: The Criteria of Christian Theological Reflection</h2>
+<p>If so many Theologies can be legitimate, where does Pluralism end and Heterodoxy begin? Raimundo Panikkar's sharpest Question: <em>"What is the criterion of the criterion?"</em></p>
+<h3 class="sec">The Magisterium and the Gradations of Doctrine</h3>
+<p>The <strong>Extraordinary Magisterium</strong> makes a solemn, infallible Definition. The <strong>Ordinary Magisterium</strong> covers everything else. Four Gradations of Doctrine, four kinds of Assent: <strong>Definitive Dogma</strong> requires the Assent of Faith; <strong>Definitive Doctrine</strong> requires Firm Acceptance; <strong>Non-Definitive Authoritative Doctrine</strong>, where most Church Teaching actually falls, requires religious Submission of Intellect and Will; <strong>Prudential Admonitions</strong> call for Obedience to the Spirit of the Guidance.</p>
+<h3 class="sec">Eight Parameters of the Catholic Theological Enterprise</h3>
+<p>The Knowability of God &middot; the Partnership of Faith and Reason &middot; Universality beyond Sectarianism &middot; an essential communitarian Context (<em>sensus fidelium</em> and Ecumenism — <span style="color:var(--wine)">India's own three Individual Churches live this Criterion as daily ecclesial Fact</span>) &middot; Catholicity in Time &middot; the sacramental Principle &middot; Revelation transmitted through Scripture <em>and</em> Tradition together &middot; a real Role for Authority.</p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>Distinguish the Extraordinary from the Ordinary Magisterium, with one Example of each.</li>
+<li>Name the four Gradations of Church Doctrine and the Assent proper to each.</li>
+<li>An Interfaith Dialogue Partner asks how the Catholic Church can accept Pluralism in Theology while still claiming to teach with Authority. Answer using the eight Parameters of this Unit.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="unit6">
+<h2>Unit 6: Theologizing in the Indian Context</h2>
+<p>When the Gospel met the Greeks, Romans and Syrians, it became Greek, Roman and Syrian Theology. Did the same happen when the Gospel met India? Three ecclesial Families: the <strong>St Thomas Christians</strong> (traditioned to 52 AD, giving rise to the Syro-Malabar and Syro-Malankara Churches), the <strong>Latin Rite</strong> (from Xavier, 1542, the largest today), and the <strong>Protestant Unions</strong> (CSI 1947, CNI 1970). Christians remain about 2.5% of India's Population.</p>
+<h3 class="sec">Two Streams Converging</h3>
+<p>One Stream works from <strong>Culture, Philosophy and Religion</strong>: de Nobili's <em>accommodatio</em>; the Vedanta Pioneers (Upadhyaya, Appasamy, Chenchaiah, Panikkar); the Christian Ashram Movement (Monchanin, Abhishiktananda, Bede Griffiths). The other works from <strong>Socio-Economic and Political Realities</strong>: Devanandan and M.M. Thomas on Christ and the new Humanity; Kappen, Rayan and Soares-Prabhu's Indian Liberation Theology; Dalit Theology and Women's Theology. The two Streams are increasingly seen as related, not opposed.</p>
+<h3 class="sec">Dalit Theology</h3>
+<p>The Cry of Dalit Christians, doubly discriminated: denied State Benefits reserved for Hindu Dalits, and still facing Prejudice inside Parts of the Church. It rejects the upper-caste philosophical Language of the earlier Pioneers, drawing instead on Dalit "little Traditions" — Myths, Stories, Folklore, Rituals — centred on the Crucified and Risen Jesus. <em>"Where do we find the God of the Bible today? Is He not with the Dalits? Yes, He is the God of the Dalits."</em></p>
+<div class="review">
+<h4>Review Questions</h4>
+<ol>
+<li>Name the three ecclesial Families in India and give the founding Date or Figure of each.</li>
+<li>State the two Streams of Indian Theological Method identified in this Unit, with one Pioneer named for each.</li>
+<li>A Parishioner tells You that Caste has nothing to do with Theology, only with Society. Using Dalit Theology's own Argument, write a three-sentence Response.</li>
+</ol>
+</div>
+</section>
+
+<section class="chapter" id="closing">
+<h2>Closing Unit: The Bush That Sends</h2>
+<p>We opened with the Bush that burns and is not consumed. This Course's own Itinerary, from the God-Question, through Sources and History, through seven Models and the Criteria that guard them, to the Indian Context in which You will actually minister, is itself an Enactment of Moses' Turn: <em>"I will turn aside and see this great sight"</em> (Ex 3:3). Theology begins in this Turning Aside, in Wonder before the Holy Ground on which the Theologian already stands, and it ends, as Moses' Encounter ended, in a Sending: <em>"Come, I will send you"</em> (Ex 3:10). No Definition given in this Course, from <em>Fides Quaerens Intellectum</em> to critical Reflection on Praxis, is complete without this final Turn toward Mission.</p>
+</section>
+
+<section class="chapter" id="bibliography">
+<h2>Select Bibliography</h2>
+<h3 class="sec">Primary Text</h3>
+<ul class="plain">
+<li>Pathil, Kuncheria, and Dominic Veliath. <em>An Introduction to Theology</em>. Indian Theological Series.</li>
+</ul>
+<h3 class="sec">Scholarly Works</h3>
+<ul class="plain">
+<li>McGrath, Alister E. <em>Christian Theology: An Introduction</em>. Oxford: Blackwell.</li>
+<li>Rahner, Karl. <em>Foundations of Christian Faith</em>. London: Darton, Longman and Todd.</li>
+<li>Dulles, Avery. <em>Models of Revelation</em>. New York: Doubleday.</li>
+<li>Schreiter, Robert J. <em>Constructing Local Theologies</em>. Maryknoll, NY: Orbis Books.</li>
+</ul>
+<h3 class="sec">Indian and Asian Contextual</h3>
+<ul class="plain">
+<li>Boyd, Robin. <em>An Introduction to Indian Christian Theology</em>. Delhi: ISPCK.</li>
+<li>Wilfred, Felix. <em>Beyond Settled Foundations: The Journey of Indian Theology</em>. Madras: University of Madras.</li>
+<li>Nirmal, A., ed. <em>A Reader in Dalit Theology</em>. Madras: Gurukul Lutheran Theological College.</li>
+</ul>
+</section>
+
+</main>
+
+<footer class="page">
+  Class notes for the Bachelor of Theology Programme, Morning Star Regional Seminary, Barrackpore &mdash; affiliated to Jnana-Deepa Pontifical Athenaeum, Pune. Student Edition. Based on class notes on Kuncheria Pathil and Dominic Veliath, <em>An Introduction to Theology</em>, restructured into the house BTh format.
+</footer>
