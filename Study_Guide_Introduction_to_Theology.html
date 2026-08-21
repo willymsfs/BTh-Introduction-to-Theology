@@ -1,24 +1,42 @@
 <title>Introduction to Theology — Study Guide</title>
 <style>
   :root {
-    --ink: #ffffff;
-    --ink-soft: #ffffff;
-    --paper: #14100b;
-    --paper-raised: #221c14;
-    --line: rgba(255,255,255,0.22);
-    --ember: #ff8a72;
-    --ember-soft: #ff8a7222;
-    --gold: #ffd27a;
-    --gold-soft: #ffd27a22;
-    --muted: rgba(255,255,255,0.72);
-    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --ink: #ede3cf;
+    --ink-soft: #cdbfa4;
+    --paper: #211c16;
+    --paper-raised: #2a241c;
+    --line: rgba(237,227,207,0.16);
+    --wine: #c17a4d;
+    --wine-soft: #c17a4d1c;
+    --gold: #d6ad5c;
+    --gold-soft: #d6ad5c1a;
+    --muted: #a3947a;
     color-scheme: dark;
   }
-  /* This page commits to one visual world — bright display text on a deep ember-lit ground — by request, so it does not flip with the viewer's light/dark toggle. */
-  :root[data-theme="dark"], :root[data-theme="light"] {
-    --ink: #ffffff; --ink-soft: #ffffff; --paper: #14100b; --paper-raised: #221c14;
-    --line: rgba(255,255,255,0.22); --ember: #ff8a72; --ember-soft: #ff8a7222;
-    --gold: #ffd27a; --gold-soft: #ffd27a22; --muted: rgba(255,255,255,0.72);
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ink: #2a2318;
+      --ink-soft: #4d4330;
+      --paper: #f4ecdb;
+      --paper-raised: #ffffff;
+      --line: rgba(42,35,24,0.15);
+      --wine: #9c4f27;
+      --wine-soft: #9c4f2714;
+      --gold: #8a6414;
+      --gold-soft: #8a641414;
+      --muted: #7a6c52;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #ede3cf; --ink-soft: #cdbfa4; --paper: #211c16; --paper-raised: #2a241c;
+    --line: rgba(237,227,207,0.16); --wine: #c17a4d; --wine-soft: #c17a4d1c;
+    --gold: #d6ad5c; --gold-soft: #d6ad5c1a; --muted: #a3947a;
+  }
+  :root[data-theme="light"] {
+    --ink: #2a2318; --ink-soft: #4d4330; --paper: #f4ecdb; --paper-raised: #ffffff;
+    --line: rgba(42,35,24,0.15); --wine: #9c4f27; --wine-soft: #9c4f2714;
+    --gold: #8a6414; --gold-soft: #8a641414; --muted: #7a6c52;
   }
 
   * { box-sizing: border-box; }
@@ -28,262 +46,129 @@
     background: var(--paper);
     color: var(--ink);
     font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 29pt;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: var(--ember-soft); }
+  ::selection { background: var(--wine-soft); }
   h1, h2, h3, h4, .display {
     font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio", serif;
     text-wrap: balance;
     font-weight: 400;
-    color: var(--ink);
+    color: var(--gold);
     margin: 0;
   }
-  p { margin: 0 0 1em; max-width: 68ch; }
-  a { color: var(--ember); }
+  p { margin: 0 0 1.1em; max-width: 42em; }
+  strong { color: var(--ink); font-weight: 700; }
+  em { color: var(--wine); font-style: italic; }
+  a { color: var(--wine); }
 
-  /* ---------- flame mark ---------- */
-  .flame { width: 1em; height: 1em; display: inline-block; vertical-align: -0.12em; }
-
-  /* ---------- top matter ---------- */
   header.hero {
-    padding: 72px 24px 56px;
+    padding: 64px 24px 48px;
     text-align: center;
     border-bottom: 1px solid var(--line);
-    background: radial-gradient(ellipse at 50% 0%, var(--ember-soft), transparent 60%);
   }
   header.hero .eyebrow {
-    font-size: 27.6px;
+    font-size: 13px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--ember);
+    color: var(--wine);
     margin-bottom: 14px;
   }
-  header.hero h1 {
-    font-size: clamp(74px, 5vw, 120px);
-    max-width: 18ch;
-    margin: 0 auto 16px;
-  }
-  header.hero .sub {
-    max-width: 56ch;
-    margin: 0 auto;
-    color: var(--ink-soft);
-    font-size: 35.6px;
-  }
-  header.hero .source {
-    margin-top: 22px;
-    font-size: 28.7px;
-    color: var(--muted);
-    font-style: italic;
-  }
+  header.hero h1 { font-size: clamp(30px, 4.6vw, 44px); max-width: 18ch; margin: 0 auto 16px; font-style: italic; }
+  header.hero .sub { max-width: 46em; margin: 0 auto; color: var(--ink-soft); font-size: 18px; }
+  header.hero .source { margin-top: 20px; font-size: 14.5px; color: var(--muted); font-style: italic; }
 
-  /* ---------- chapter nav ---------- */
   nav.chapters {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    gap: 2px;
-    overflow-x: auto;
+    position: sticky; top: 0; z-index: 10;
+    display: flex; gap: 2px; overflow-x: auto;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     padding: 0 12px;
-    backdrop-filter: blur(6px);
   }
   nav.chapters a {
-    flex: none;
-    padding: 13px 14px;
-    font-size: 28.7px;
-    text-decoration: none;
-    color: var(--muted);
-    white-space: nowrap;
+    flex: none; padding: 13px 14px; font-size: 14px;
+    text-decoration: none; color: var(--muted); white-space: nowrap;
     border-bottom: 2px solid transparent;
   }
-  nav.chapters a:hover { color: var(--ember); border-color: var(--ember-soft); }
+  nav.chapters a:hover { color: var(--wine); border-color: var(--wine-soft); }
   nav.chapters a .n { color: var(--gold); font-variant-numeric: tabular-nums; margin-right: 5px; }
 
-  main { max-width: 1500px; margin: 0 auto; padding: 0 24px 40px; }
+  main { max-width: 780px; margin: 0 auto; padding: 0 24px 40px; }
 
-  /* ---------- chapter blocks ---------- */
-  section.chapter {
-    padding: 64px 0 40px;
-    border-bottom: 1px solid var(--line);
-    scroll-margin-top: 56px;
-  }
+  section.chapter { padding: 56px 0 36px; border-bottom: 1px solid var(--line); scroll-margin-top: 52px; }
   section.chapter:last-of-type { border-bottom: none; }
   .chap-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 27.6px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--wine); margin-bottom: 8px;
   }
   .chap-eyebrow .line { flex: 1; height: 1px; background: var(--line); }
-  section.chapter h2 { font-size: clamp(55px, 3.6vw, 74px); margin-bottom: 8px; }
-  .chap-dek { color: var(--ink-soft); font-size: 34.5px; margin-bottom: 28px; max-width: 62ch; }
+  section.chapter h2 { font-size: clamp(24px, 3.2vw, 30px); margin-bottom: 8px; font-style: italic; }
+  .chap-dek { color: var(--ink-soft); font-size: 17px; margin-bottom: 26px; max-width: 42em; }
 
-  h3.sec {
-    font-size: 42.5px;
-    margin: 34px 0 10px;
-    padding-top: 2px;
-  }
+  h3.sec { font-size: 21px; color: var(--gold); margin: 30px 0 10px; }
   h4.sub {
     font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 28.7px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 22px 0 8px;
-  }
-
-  .lede {
-    font-size: 40.2px;
-    color: var(--ink-soft);
-    max-width: 62ch;
+    font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--wine); margin: 22px 0 8px;
   }
 
   blockquote {
-    margin: 20px 0;
-    padding: 4px 0 4px 18px;
-    border-left: 3px solid var(--ember);
-    font-style: italic;
-    color: var(--ink-soft);
-    max-width: 60ch;
-  }
-  blockquote cite {
-    display: block;
-    margin-top: 6px;
-    font-style: normal;
-    font-size: 28.7px;
-    color: var(--muted);
+    margin: 20px 0; padding: 6px 0 6px 18px;
+    border-left: 3px solid var(--gold);
+    font-style: italic; color: var(--ink-soft); max-width: 40em;
   }
 
-  ul.plain, ol.plain { padding-left: 1.2em; margin: 0 0 1em; max-width: 64ch; }
-  ul.plain li, ol.plain li { margin-bottom: 8px; }
+  ul.plain, ol.plain { padding-left: 1.3em; margin: 0 0 1.1em; max-width: 42em; }
+  ul.plain li, ol.plain li { margin-bottom: 9px; }
 
-  /* leitmotif callout */
   .leitmotif {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 16px 18px;
-    margin: 22px 0 30px;
+    background: var(--paper-raised); border: 1px solid var(--line); border-left: 3px solid var(--wine);
+    border-radius: 3px; padding: 16px 20px; margin: 20px 0 28px;
   }
-  .leitmotif svg { flex: none; width: 26px; height: 26px; margin-top: 2px; color: var(--ember); }
-  .leitmotif p { margin: 0; font-size: 32.2px; color: var(--ink-soft); }
-  .leitmotif strong { color: var(--ink); }
+  .leitmotif p { margin: 0; font-size: 17px; color: var(--ink-soft); }
+  .leitmotif strong { color: var(--gold); }
 
-  /* diagram frame */
-  .diagram {
-    margin: 28px 0 32px;
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 22px 18px 14px;
-  }
-  .diagram .cap {
-    font-size: 26.4px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 10px;
-    text-align: center;
-  }
-  .diagram-scroll { overflow-x: auto; }
-
-  /* polarity pairs grid */
-  .polarities {
-    display: grid;
-    gap: 10px;
-    margin: 20px 0 30px;
-  }
+  .polarities { display: grid; gap: 8px; margin: 18px 0 28px; }
   .pol {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 10px;
-    align-items: center;
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 12px 14px;
-    font-size: 31px;
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center;
+    background: var(--paper-raised); border: 1px solid var(--line); border-radius: 3px;
+    padding: 10px 16px; font-size: 15.5px;
   }
-  .pol .a { text-align: right; color: var(--ink); }
-  .pol .b { text-align: left; color: var(--ink); }
-  .pol .mid { color: var(--gold); font-size: 25.3px; letter-spacing: 0.05em; }
-  .pol .label { display: block; font-weight: 600; font-size: 29.9px; }
-  .pol .note { display: block; color: var(--muted); font-size: 27.6px; margin-top: 2px; }
+  .pol .a { text-align: right; }
+  .pol .b { text-align: left; }
+  .pol .mid { color: var(--gold); font-size: 12px; letter-spacing: 0.05em; }
+  .pol .label { display: block; font-weight: 700; color: var(--ink); }
+  .pol .note { display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
 
-  /* model matrix */
-  .matrix-wrap { overflow-x: auto; margin: 20px 0 30px; }
-  table.matrix {
-    border-collapse: collapse;
-    width: 100%;
-    min-width: 1000px;
-    font-size: 29.9px;
-  }
-  table.matrix th, table.matrix td {
-    border: 1px solid var(--line);
-    padding: 10px 12px;
-    text-align: left;
-    vertical-align: top;
-  }
+  .matrix-wrap { overflow-x: auto; margin: 18px 0 28px; }
+  table.matrix { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+  table.matrix th, table.matrix td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; }
   table.matrix th {
-    background: var(--paper-raised);
-    font-weight: 600;
-    font-size: 26.4px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
+    background: var(--paper-raised); font-weight: 700; font-size: 12.5px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold);
   }
-  table.matrix td.who { font-weight: 600; white-space: nowrap; }
+  table.matrix td.who { font-weight: 700; color: var(--gold); white-space: nowrap; }
 
-  /* review questions */
-  .review {
-    margin-top: 34px;
-    background: var(--gold-soft);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 18px 20px;
-  }
-  .review h4 {
-    margin: 0 0 10px;
-    font-size: 27.6px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .review ol { margin: 0; padding-left: 1.1em; font-size: 31px; color: var(--ink-soft); }
+  .review { margin-top: 30px; background: var(--gold-soft); border: 1px solid var(--line); border-radius: 3px; padding: 18px 22px; }
+  .review h4 { margin: 0 0 10px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+  .review ol { margin: 0; padding-left: 1.2em; font-size: 15.5px; color: var(--ink-soft); }
   .review li { margin-bottom: 7px; }
 
-  footer.page {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 40px 24px 70px;
-    font-size: 28.7px;
-    color: var(--muted);
-  }
+  footer.page { max-width: 780px; margin: 0 auto; padding: 36px 24px 64px; font-size: 13.5px; color: var(--muted); }
 
-  @media (max-width: 640px) {
-    .pol { grid-template-columns: 1fr; text-align: left !important; }
+  @media (max-width: 600px) {
+    .pol { grid-template-columns: 1fr; }
     .pol .a, .pol .b { text-align: left; }
     .pol .mid { display: none; }
   }
-
-  pre.mermaid { background: transparent; margin: 0; }
 </style>
 
 <header class="hero">
   <p class="eyebrow">BTh &middot; Introduction to Theology</p>
   <h1>The Bush That Burns and Sends</h1>
-  <p class="sub">A study guide through six chapters — from the God-question to theologizing in the Indian context — with the structure, tensions and models laid out as diagrams alongside the text.</p>
+  <p class="sub">A study guide through six chapters — from the God-question to theologizing in the Indian context.</p>
   <p class="source">Class notes on Kuncheria Pathil, CMI, and Dominic Veliath, SDB, <em>An Introduction to Theology</em>, Indian Theological Series</p>
 </header>
 
@@ -298,67 +183,33 @@
 
 <main>
 
-<!-- ================= CHAPTER 1 ================= -->
 <section class="chapter" id="ch1">
   <p class="chap-eyebrow"><span>Chapter 1</span><span class="line"></span><span>Foundations</span></p>
   <h2>What Is Theology?</h2>
   <p class="chap-dek">Three positions on God, three positions on whether we can speak of God at all, and eight attempts — none of them final — to define the discipline that results.</p>
 
   <div class="leitmotif">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c1.5 3 4 4.5 4 8a4 4 0 0 1-8 0c0-1.4.6-2.3 1.2-3.2C9.6 8 10 9 10 10a2 2 0 0 0 4 0c0-2-1.5-3.3-2-6z"/><path d="M8 14a6 6 0 0 0 12 0c0-3-2-5-3-7"/></svg>
-    <p><strong>Leitmotif — the Burning Bush (Ex 3:2&ndash;6).</strong> The fire that burns and is not consumed opens the God-question, returns at the hinge into the definitions, and seals the close: "I will turn aside and see this great sight" (Ex 3:3) — theology begins in that turning aside, and ends, as Moses' encounter ended, in a sending: "Come, I will send you" (Ex 3:10).</p>
+    <p><strong>Leitmotif — the Burning Bush</strong> (Ex 3:2&ndash;6). The fire that burns and is not consumed opens the God-question, returns at the hinge into the definitions, and seals the close: <em>"I will turn aside and see this great sight"</em> (Ex 3:3) — theology begins in that turning aside, and ends, as Moses' encounter ended, in a sending: <em>"Come, I will send you"</em> (Ex 3:10).</p>
   </div>
 
   <h3 class="sec">A. Can God's existence be assumed?</h3>
-  <p>Theology = <em>theos</em> + <em>logos</em>, God-talk — but in a world of secularism, agnosticism and atheism, existence cannot be taken for granted. The chapter sets out three positions, then argues for the third using Aquinas's Five Ways, read through Newman's caution that such proofs offer only "a convergence of diverse probabilities," not coercive certainty.</p>
-
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    Q["The God-Question"] --> A["Atheistic View<br/><small>Camus, Marx, Nietzsche, Freud —<br/>problem of evil, God as projection</small>"]
-    Q --> B["Agnostic View<br/><small>the question itself is not important</small>"]
-    Q --> C["Theistic View<br/><small>God as Ultimate Ground of Being,<br/>knowable by natural reason</small>"]
-    C --> D["Aquinas's Five Ways<br/><small>illuminating, not coercive</small>"]
-    style Q fill:#a9761f22,stroke:#a9761f,color:#ffffff
-    style C fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-    style D fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 1 — The three positions on God's existence</p>
-  </div>
+  <p>Theology = <em>theos</em> + <em>logos</em>, God-talk — but in a world of secularism, agnosticism and atheism, existence cannot be taken for granted. Three positions divide the field: the <strong>Atheistic View</strong> (Camus, Marx, Nietzsche, Freud — the problem of evil, God as projection); the <strong>Agnostic View</strong> (the question itself is not, after all, important); and the <strong>Theistic View</strong>, which the chapter endorses — God as Ultimate Ground of Being, knowable by natural reason. Aquinas's Five Ways move from effect to cause to Prime Mover, but as Newman cautioned, such proofs offer only <em>"a convergence of diverse probabilities,"</em> not coercive certainty. Reason opens a path to God; it does not compel the traveller to walk it.</p>
 
   <h3 class="sec">B. Can finite language reach an infinite God?</h3>
-  <p>Even granting existence, a second question follows: can language reach the Ineffable? The classical Hindu <em>neti neti</em> ("not this, not this") and mystical negative theology both deny the possibility. The biblical tradition affirms a limited but real positive knowledge — mediated through the Analogical Way, the middle path between silence and naive literalism.</p>
-
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    U["Univocal<br/><small>same word, same meaning —<br/>impossible for God-talk</small>"] -.impossible.-> X((" "))
-    E["Equivocal<br/><small>same word, unrelated meanings —<br/>collapses into nonsense</small>"] -.impossible.-> X
-    X --> AN["Analogical<br/><small>proportion &amp; participation —<br/>Aristotle, refined by Aquinas</small>"]
-    AN --> F["'Our Father' —<br/>neither identical nor meaningless"]
-    style AN fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-    style F fill:#a9761f22,stroke:#a9761f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 2 — Univocal / Equivocal / Analogical: only the analogical way sustains God-talk</p>
-  </div>
-
+  <p>Even granting existence, can language reach the Ineffable? The classical Hindu <em>neti neti</em> ("not this, not this") and mystical negative theology both deny the possibility. The biblical tradition affirms a limited but real positive knowledge, mediated through three ways of using words about God: <strong>Univocal</strong> (the same word, the same meaning — impossible for God-talk, since God is Infinite and the creature finite); <strong>Equivocal</strong> (the same word, unrelated meanings — would collapse theology into nonsense); and <strong>Analogical</strong> (a word applying by proportion and participation, developed by Aristotle and refined by Aquinas). Calling God "our Father" is neither univocal nor equivocal — we purify the earthly notion of its limits and apply it to God in an eminent way. Analogy alone makes the whole theological enterprise possible.</p>
   <h4 class="sub">Indian context</h4>
-  <p>The Upanishadic instinct toward silence before Brahman and the biblical confidence that God has a name and a face in Jesus Christ are held together, not resolved by choosing one over the other. Analogical knowledge is the middle path.</p>
+  <p>The Upanishadic instinct toward silence before Brahman and the biblical confidence that God has a name and a face in Jesus Christ are held together, not resolved by choosing one over the other. Analogical knowledge is precisely this middle path.</p>
 
   <h3 class="sec">C. God-experience and the language of symbol</h3>
-  <p>Religious experience — the Burning Bush, the Transfiguration, Emmaus — can only be expressed symbolically: "Theology uses ordinary language in an extraordinary way." Jesus Christ is the supreme symbol, not merely pointing to God but God-Incarnate; the Eucharist both signifies and <em>is</em> the presence it mediates.</p>
+  <p>Religious experience — the Burning Bush, the Transfiguration, Emmaus — can only be expressed symbolically: <em>"Theology uses ordinary language in an extraordinary way."</em> Jesus Christ is the supreme symbol, not merely pointing to God but God-Incarnate; the Eucharist both signifies and <em>is</em> the presence it mediates.</p>
 
   <h3 class="sec">D. Eight definitions — a series, not a sentence</h3>
-  <p>The chapter refuses a single tidy definition. Instead it stacks eight, each adding a dimension the others leave out:</p>
+  <p>The chapter refuses a single tidy definition, stacking eight instead, each adding what the others leave out:</p>
   <ol class="plain">
     <li><strong>Theologia</strong> — <em>theos</em> + <em>logos</em>; from Plato's critique of the poets to the medieval university discipline.</li>
     <li><strong>Faith Seeking Understanding</strong> (Anselm) — <em>fides quaerens intellectum</em>, balanced between Fideism and Rationalism.</li>
     <li><strong>Lex Orandi, Lex Credendi</strong> (the Eastern Way) — the law of praying is the law of believing; liturgy as <em>locus theologicus</em>.</li>
-    <li><strong>Theological Anthropology</strong> (Rahner) — "whatever we say about God says something about us... God and humanity are correlative terms."</li>
+    <li><strong>Theological Anthropology</strong> (Rahner) — <em>"whatever we say about God says something about us... God and humanity are correlative terms."</em></li>
     <li><strong>Critical Reflection on Praxis</strong> (Gutierrez) — the shift from orthodoxy alone to orthopraxis.</li>
     <li><strong>Theology as Hermeneutics</strong> — continuous reinterpretation of the past in dialogue with the present, against nihilism, relativism and fundamentalism.</li>
     <li><strong>Interpretation of the Christian Story</strong> (<em>mythos</em>) — symbols, rituals and narratives that mediate the divine presence.</li>
@@ -380,7 +231,7 @@ flowchart LR
   <blockquote>"All theories are tested by praxis; practice in turn challenges the theories that become inadequate."</blockquote>
 
   <h3 class="sec">F. Theology and other sciences</h3>
-  <p>Philosophy was long the <em>ancilla theologiae</em>, theology's handmaid — Platonic categories for Origen and Augustine, Aristotelian for Aquinas, Existentialist for Rahner. <strong>Indian context:</strong> Upadhyaya, Abhishiktananda and Panikkar used Vedanta, understanding the Trinity through Saccidananda — an Indian <em>ancilla theologiae</em> placed at the service of the Christian mystery exactly as the Greek Fathers once placed the Logos.</p>
+  <p>Philosophy was long the <em>ancilla theologiae</em>, theology's handmaid — Platonic categories for Origen and Augustine, Aristotelian for Aquinas, Existentialist for Rahner. <strong>Indian context:</strong> Upadhyaya, Abhishiktananda and Panikkar used Vedanta, understanding the Trinity through <em>Saccidananda</em> — an Indian <em>ancilla theologiae</em> placed at the service of the Christian mystery exactly as the Greek Fathers once placed the Logos.</p>
 
   <h3 class="sec">G. Eight goals of theologizing</h3>
   <p>To awaken the Christ-experience; to explain and systematize faith; to sift Scripture for the Word of God today; to interpret prophetically for the present age; to expose the hierarchy of truths; to serve pastoral formation; to serve the Church's mission and witness; and to work toward the Kingdom of God.</p>
@@ -397,71 +248,30 @@ flowchart LR
   </div>
 </section>
 
-<!-- ================= CHAPTER 2 ================= -->
 <section class="chapter" id="ch2">
   <p class="chap-eyebrow"><span>Chapter 2</span><span class="line"></span><span>Foundations</span></p>
   <h2>The Sources of Theology</h2>
   <p class="chap-dek">Chapter 1 asked what theology is. Chapter 2 asks where the theologian stands while doing it — foundations, sources and resources are together the holy ground beneath every theological sentence.</p>
 
   <div class="leitmotif">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c1.5 3 4 4.5 4 8a4 4 0 0 1-8 0c0-1.4.6-2.3 1.2-3.2C9.6 8 10 9 10 10a2 2 0 0 0 4 0c0-2-1.5-3.3-2-6z"/><path d="M8 14a6 6 0 0 0 12 0c0-3-2-5-3-7"/></svg>
-    <p><strong>The Hinge.</strong> "Come no closer; remove your sandals, for the place where you are standing is holy ground" (Ex 3:5). The voice that sent Moses to the cry of the people (Ex 3:7, 10) did not fall silent when the canon closed — Sources hand the fire on; Resources are where the same voice still speaks.</p>
+    <p><strong>The Hinge.</strong> <em>"Come no closer; remove your sandals, for the place where you are standing is holy ground"</em> (Ex 3:5). The voice that sent Moses to the cry of the people (Ex 3:7, 10) did not fall silent when the canon closed — Sources hand the fire on; Resources are where the same voice still speaks.</p>
   </div>
 
   <h3 class="sec">A. Faith and Revelation — the foundations</h3>
   <p>Two sides of one event: Revelation is God's self-communication; Faith is the human reception and response. Faith and belief are not the same — <em>fides qua</em> (faith as trust) grounds <em>fides quae</em> (faith's conceptual content), which is why one Christ can generate different Christologies without dividing the one faith.</p>
-
   <h4 class="sub">Four models of Revelation</h4>
-  <p>Doctrine (cognitive propositions) &middot; Presence (personal encounter) &middot; Experience (universal existential openness) &middot; History (a public event open to investigation) — not exclusive, but dimensions of one reality.</p>
+  <p><strong>Doctrine</strong> (cognitive propositions) &middot; <strong>Presence</strong> (personal encounter) &middot; <strong>Experience</strong> (universal existential openness) &middot; <strong>History</strong> (a public event open to investigation) — not exclusive, but dimensions of one reality.</p>
 
   <h3 class="sec">B. From one Tradition to three Sources</h3>
-  <p>Vatican II resolved a centuries-long debate — Luther and Calvin's <em>Sola Scriptura</em> against Trent's "Scripture and unwritten traditions," hardened after Trent into a defective Two-Source Theory. There is, in fact, <strong>one</strong> source, the Apostolic Tradition, concretely identified through three linked realities.</p>
-
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart TB
-    T["One Apostolic Tradition<br/><small>the founding revelational and faith experience</small>"]
-    T --> S["Sacred Scripture<br/><small>norma normans non normata</small>"]
-    T --> D["Tradition &amp; traditions<br/><small>liturgy, creeds, Fathers, dogmas, customs, catechisms</small>"]
-    T --> M["Magisterium<br/><small>college of bishops + Pope</small>"]
-    S -.-> M
-    D -.-> M
-    M -.-> S
-    style T fill:#a9761f22,stroke:#a9761f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 3 — "So linked and joined together that one cannot stand without the others" (<em>Dei Verbum</em>, 10)</p>
-  </div>
-
-  <h4 class="sub">Six vehicles of Tradition (small t)</h4>
+  <p>Vatican II resolved a centuries-long debate — Luther and Calvin's <em>Sola Scriptura</em> against Trent's "Scripture and unwritten traditions," hardened after Trent into a defective Two-Source Theory. There is, in fact, <strong>one</strong> source, the Apostolic Tradition, concretely identified through three linked realities, <em>"so linked and joined together that one cannot stand without the others"</em> (<em>Dei Verbum</em>, 10):</p>
   <ul class="plain">
-    <li>Different ecclesial traditions — 22 Individual Churches; India holds two, Syro-Malabar and Syro-Malankara.</li>
-    <li>Liturgy, sacraments and prayers — the Chapter 1 callback: <em>lex orandi, lex credendi</em>.</li>
-    <li>Creeds — Apostles', Nicene, Constantinopolitan — <em>fides qua</em> with an intellectual content.</li>
-    <li>The Fathers of the Church — Antiquity, Orthodoxy, Holiness of Life, Recognition.</li>
-    <li>Dogmas — explicit propounding of revealed truth, standing in a hierarchy of truths.</li>
-    <li>Customs, disciplines, codes, and catechisms — from Trent (1566) to the CCC (1992).</li>
+    <li><strong>Sacred Scripture</strong> — <em>norma normans non normata</em>, the norm which norms all else and is itself normed by no other criterion.</li>
+    <li><strong>Tradition and traditions</strong> — six vehicles: different ecclesial traditions (22 Individual Churches; India holds two, Syro-Malabar and Syro-Malankara); liturgy, sacraments and prayers (the Chapter 1 callback: <em>lex orandi, lex credendi</em>); creeds (Apostles', Nicene, Constantinopolitan); the Fathers of the Church (Antiquity, Orthodoxy, Holiness of Life, Recognition); dogmas (standing in a hierarchy of truths); and customs, disciplines, codes and catechisms, from Trent (1566) to the CCC (1992).</li>
+    <li><strong>Magisterium</strong> — the college of bishops in communion with the Pope.</li>
   </ul>
 
   <h3 class="sec">C. Resources — where God still speaks</h3>
-  <p>Where the Sources are the normative, historically fixed media of the one Tradition, the Resources are the wider field read through the Signs of the Times.</p>
-
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    R(("Resources")) --> P["People &amp; their<br/>experience"]
-    R --> C["Cultural<br/>resources"]
-    R --> O["Other religious<br/>traditions"]
-    R --> V["Peoples' movements /<br/>voice of the marginalized"]
-    R --> Poor["The cry<br/>of the poor"]
-    style R fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 4 — Five resources, none of them normative Sources, all of them places God speaks today</p>
-  </div>
-
+  <p>Where the Sources are the normative, historically fixed media of the one Tradition, the Resources are the wider field read through the Signs of the Times: <strong>people and their experience</strong>, <strong>cultural resources</strong>, <strong>other religious traditions</strong>, <strong>peoples' movements and the voice of the marginalized</strong>, and <strong>the cry of the poor</strong> — none of them a normative Source, all of them places God speaks today.</p>
   <blockquote>"God speaks today in a very special way through the cry of the poor, their struggles, aspirations, visions and hopes."</blockquote>
 
   <h3 class="sec">Four polarities implicit in this chapter</h3>
@@ -484,52 +294,26 @@ flowchart LR
   </div>
 </section>
 
-<!-- ================= CHAPTER 3 ================= -->
 <section class="chapter" id="ch3">
   <p class="chap-eyebrow"><span>Chapter 3</span><span class="line"></span><span>History</span></p>
   <h2>Development and Pluralism in Theology</h2>
   <p class="chap-dek">Why is there not just one theology, but many, across the Bible, the early Church, the Middle Ages, and today? Five historical periods, walked in order.</p>
 
   <h3 class="sec">A. Pluralism is not Relativism</h3>
-  <p>Pluralism means one truth approached from more than one legitimate angle; relativism denies a single truth exists at all — "a negation of realism." Five kinds of legitimate difference: Fundamental, Speculative, Biblical, Magisterial, and Contextual theologies.</p>
-
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    B["Biblical<br/><small>Yahwist, Elohist, Priestly,<br/>Matthean, Johannine...</small>"] --> P["Patristic<br/><small>Apologetic &rarr; Dogmatic &rarr;<br/>Theological phases</small>"]
-    P --> S["Scholastic<br/><small>Anselm, Bernard, Aquinas,<br/>Bonaventure, Scotus, Ockham</small>"]
-    S --> PS["Post-Scholastic<br/><small>Neo-Scholastic revival &rarr;<br/>Existentialism &rarr; Vatican II</small>"]
-    PS --> C["Contextual<br/><small>Liberation, Feminist,<br/>Dalit, Minjung...</small>"]
-    style C fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 5 — Five periods, one continuous widening of legitimate theological form</p>
-  </div>
+  <p>Pluralism means one truth approached from more than one legitimate angle; relativism denies a single truth exists at all — <em>"a negation of realism."</em> Five kinds of legitimate difference: Fundamental, Speculative, Biblical, Magisterial, and Contextual theologies.</p>
 
   <h3 class="sec">B. Theologies in the Bible</h3>
   <p>The Gospels were written backwards: the earliest preaching was the bare kerygma (Christ died and rose), from which grew the Passion Narrative, and only later the material on Jesus's earlier ministry placed in front of it. Mark begins with the adult Jesus and ends at the empty tomb — no birth narrative, because Mark's purpose was to preach salvation, not write biography. Result: a Matthean, a Marcan, a Lucan and a Johannine theology — four portraits of one Christ.</p>
 
   <h3 class="sec">C. The Fathers of the Church</h3>
-  <p>Four qualities: soundness of doctrine, holiness of life, official recognition, antiquity. Three geographic streams — Semitic (Ephraem at Edessa), Greek (Alexandria, culminating in the Cappadocians), Latin (Rome and Carthage, culminating in Augustine). <strong>Indian context:</strong> the Syro-Malabar and Syro-Malankara Churches inherit their theological ancestry directly from the Semitic-Syriac stream.</p>
+  <p>Four qualities: soundness of doctrine, holiness of life, official recognition, antiquity. Three geographic streams — <strong>Semitic</strong> (Ephraem at Edessa), <strong>Greek</strong> (Alexandria, culminating in the Cappadocians), <strong>Latin</strong> (Rome and Carthage, culminating in Augustine). <em>Indian context:</em> the Syro-Malabar and Syro-Malankara Churches inherit their theological ancestry directly from the Semitic-Syriac stream.</p>
   <p>Twelve developments in this period: fixing the NT Canon &middot; the role of Tradition against Gnosticism &middot; the ecumenical Creeds &middot; Chalcedon's Christology (Alexandrian vs Antiochene) &middot; East/West approaches to the Trinity &middot; the rise of the five Patriarchates &middot; sacramentality (Augustine against the Donatists) &middot; grace (Augustine against Pelagius) &middot; the beginnings of biblical hermeneutics (Origen) &middot; theology meeting Greek culture (the Logos) &middot; first attempts to relate reason and faith (the Cappadocians) &middot; the rise of theological schools (Alexandria, Antioch).</p>
 
   <h3 class="sec">D. Scholastic Theology</h3>
-  <p>Four periods, 800&ndash;1500 AD, organized around university lectures and disputations. Two questions dominate: the proper role of reason, and how to systematize doctrine. Gilson's phrase: "cathedrals of the mind."</p>
-
-  <h4 class="sub">Six figures, one spectrum</h4>
-  <table class="matrix" style="min-width:0">
-    <tr><th>Figure</th><th>Emphasis</th></tr>
-    <tr><td class="who">Anselm (1033&ndash;1109)</td><td>Faith seeking understanding — father of Scholasticism</td></tr>
-    <tr><td class="who">Bernard (1091&ndash;1153)</td><td>Mystical theology — "to know Jesus and Him crucified"</td></tr>
-    <tr><td class="who">Aquinas (1225&ndash;1274)</td><td>Synthesis emphasising the intellect</td></tr>
-    <tr><td class="who">Bonaventure (1221&ndash;1274)</td><td>Synthesis emphasising the will</td></tr>
-    <tr><td class="who">Scotus (1266&ndash;1308)</td><td>Christ-centred synthesis — the Incarnation willed independently of sin</td></tr>
-    <tr><td class="who">Ockham (1285&ndash;1347)</td><td>Nominalism — Ockham's Razor — breakdown of the synthesis</td></tr>
-  </table>
+  <p>Four periods, 800&ndash;1500 AD, organized around university lectures and disputations. Two questions dominate: the proper role of reason, and how to systematize doctrine. Gilson's phrase: <em>"cathedrals of the mind."</em> Six figures trace the spectrum: <strong>Anselm</strong> (1033&ndash;1109), faith seeking understanding, father of Scholasticism; <strong>Bernard</strong> (1091&ndash;1153), mystical theology, "to know Jesus and Him crucified"; <strong>Aquinas</strong> (1225&ndash;1274), synthesis emphasising the intellect; <strong>Bonaventure</strong> (1221&ndash;1274), synthesis emphasising the will; <strong>Scotus</strong> (1266&ndash;1308), a Christ-centred synthesis, the Incarnation willed independently of sin; and <strong>Ockham</strong> (1285&ndash;1347), nominalism and Ockham's Razor, the breakdown of the synthesis.</p>
 
   <h3 class="sec">E. The Post-Scholastic Era</h3>
-  <p>The Reformation split the Church; Trent answered defensively. Three later currents: the Neo-Scholastic Renewal (Leo XIII's <em>Aeterni Patris</em>, 1879) &middot; the Existentialist Thrust (Gabriel Marcel's problem/mystery, having/being) &middot; and the Kairos of Vatican II, where Congar, Daniélou, de Lubac and Rahner — all trained in the Neo-Scholastic mould — opened it up from within.</p>
+  <p>The Reformation split the Church; Trent answered defensively. Three later currents: the <strong>Neo-Scholastic Renewal</strong> (Leo XIII's <em>Aeterni Patris</em>, 1879); the <strong>Existentialist Thrust</strong> (Gabriel Marcel's problem/mystery, having/being); and the <strong>Kairos of Vatican II</strong>, where Congar, Daniélou, de Lubac and Rahner — all trained in the Neo-Scholastic mould — opened it up from within.</p>
 
   <h3 class="sec">F. Contextual Theologies</h3>
   <p>Three roots: Gospel, Church, Culture. Named instances: Continental/National theologies &middot; Secularisation (Bonhoeffer) &middot; Death of God theology &middot; Black theology &middot; Feminist theologies &middot; Ecofeminism &middot; <strong>Dalit Theology</strong> (India) &middot; Minjung Theology (Korea, from <em>han</em>, repressed anger). A necessary caution: not everything calling itself contextual is automatically authentically Catholic — tested against the criteria of Chapter 5.</p>
@@ -547,46 +331,34 @@ flowchart LR
   </div>
 </section>
 
-<!-- ================= CHAPTER 4 ================= -->
 <section class="chapter" id="ch4">
   <p class="chap-eyebrow"><span>Chapter 4</span><span class="line"></span><span>Models</span></p>
   <h2>Selected Models of Theology</h2>
   <p class="chap-dek">Seven theologians, seven ways faith and culture are actually balanced in practice — presented in historical order, two of them rooted directly in Indian ecclesial reality.</p>
 
   <h3 class="sec">Four ways to strike the balance of faith and culture</h3>
-  <div class="polarities">
-    <div class="pol"><span class="a"><span class="label">Translation Model</span></span><span class="mid">focus</span><span class="b">hands on the inherited tradition</span></div>
-    <div class="pol"><span class="a"><span class="label">Anthropological Model</span></span><span class="mid">focus</span><span class="b">the local cultural context</span></div>
-    <div class="pol"><span class="a"><span class="label">Synthetic Model</span></span><span class="mid">focus</span><span class="b">tradition and context, roughly equal</span></div>
-    <div class="pol"><span class="a"><span class="label">Transcendental Model</span></span><span class="mid">focus</span><span class="b">the theologizing subject itself</span></div>
-  </div>
+  <p><strong>Translation Model</strong> — hands on the inherited tradition. <strong>Anthropological Model</strong> — focuses on the local cultural context. <strong>Synthetic Model</strong> — tradition and context, roughly equal. <strong>Transcendental Model</strong> — focuses on the theologizing subject itself.</p>
 
   <h4 class="sub">The seven models</h4>
   <div class="matrix-wrap">
   <table class="matrix">
     <tr><th>Theologian</th><th>Model / centre</th><th>Key move</th></tr>
-    <tr><td class="who">Ephraem<br/><span style="font-weight:400;color:var(--muted)">c.306&ndash;373, Semitic-Syriac</span></td><td>Theology as poetry</td><td>Avoids definitions as a kind of blasphemy against the Limitless; three attitudes to God — domination, detached study, or love and wonder</td></tr>
-    <tr><td class="who">Schmemann<br/><span style="font-weight:400;color:var(--muted)">1921&ndash;1983, Orthodox</span></td><td>Liturgical experience</td><td>"Theology is best expressed in the form of praise"; <em>lex orandi, lex credendi</em> as living Tradition</td></tr>
-    <tr><td class="who">Aquinas<br/><span style="font-weight:400;color:var(--muted)">1225&ndash;1274, Scholastic</span></td><td>Sacred science</td><td>Philosophy as handmaid; theology borrows only its method of exposition, never its principles</td></tr>
-    <tr><td class="who">Barth<br/><span style="font-weight:400;color:var(--muted)">1886&ndash;1968, Kerygmatic</span></td><td>Theology as response</td><td>No independent authority — measured entirely against the Word; <em>Sola Scriptura</em> without denying all tradition</td></tr>
-    <tr><td class="who">Rahner<br/><span style="font-weight:400;color:var(--muted)">1904&ndash;1984, Anthropological</span></td><td>Theological anthropology</td><td>Transcendence of the human spirit; the Supernatural Existential dissolves the nature/grace split</td></tr>
-    <tr><td class="who">Liberation theologians<br/><span style="font-weight:400;color:var(--muted)">1970s, Latin America</span></td><td>Critical reflection on praxis</td><td>Starts from involvement, not an idea; orthopraxis alongside orthodoxy; the "non-person" as primary interlocutor</td></tr>
-    <tr><td class="who">Abhishiktananda<br/><span style="font-weight:400;color:var(--muted)">1910&ndash;1973, Contemplative, India</span></td><td>Advaitic experience</td><td>Christian Advaita; theology as realized experience, "within," before it is concept</td></tr>
+    <tr><td class="who">Ephraem<br/><span style="font-weight:400;color:var(--muted)">c.306&ndash;373</span></td><td>Theology as poetry</td><td>Avoids definitions as a kind of blasphemy against the Limitless; three attitudes to God — domination, detached study, or love and wonder</td></tr>
+    <tr><td class="who">Schmemann<br/><span style="font-weight:400;color:var(--muted)">1921&ndash;1983</span></td><td>Liturgical experience</td><td><em>"Theology is best expressed in the form of praise"</em>; <em>lex orandi, lex credendi</em> as living Tradition</td></tr>
+    <tr><td class="who">Aquinas<br/><span style="font-weight:400;color:var(--muted)">1225&ndash;1274</span></td><td>Sacred science</td><td>Philosophy as handmaid; theology borrows only its method of exposition, never its principles</td></tr>
+    <tr><td class="who">Barth<br/><span style="font-weight:400;color:var(--muted)">1886&ndash;1968</span></td><td>Theology as response</td><td>No independent authority — measured entirely against the Word; <em>Sola Scriptura</em> without denying all tradition</td></tr>
+    <tr><td class="who">Rahner<br/><span style="font-weight:400;color:var(--muted)">1904&ndash;1984</span></td><td>Theological anthropology</td><td>Transcendence of the human spirit; the Supernatural Existential dissolves the nature/grace split</td></tr>
+    <tr><td class="who">Liberation theologians<br/><span style="font-weight:400;color:var(--muted)">1970s</span></td><td>Critical reflection on praxis</td><td>Starts from involvement, not an idea; orthopraxis alongside orthodoxy; the "non-person" as primary interlocutor</td></tr>
+    <tr><td class="who">Abhishiktananda<br/><span style="font-weight:400;color:var(--muted)">1910&ndash;1973</span></td><td>Advaitic experience</td><td>Christian Advaita; theology as realized experience, "within," before it is concept</td></tr>
   </table>
   </div>
-
   <p><strong>Indian context:</strong> two of these seven are chosen precisely for India — Ephraem, root of the Syro-Malabar and Syro-Malankara traditions, and Schmemann's celebrative liturgical model, shared with all Oriental traditions. Two more arise directly from the Indian context: the Praxis model (paralleling Dalit and Tribal theology) and Abhishiktananda's contemplative approach.</p>
 
   <h3 class="sec">On Aquinas — theology as sacred science</h3>
-  <p>Aquinas felt free to replace even Augustine's philosophical framework if a better one was available, "because philosophy is not itself necessary for salvation, but if theology uses a philosophy, it should use the best one available." Lonergan later judged this shift helpful on two counts: it gave medieval thinkers the <em>quaestio</em> method to reconcile patristic interpretations into coherent Summae, and it let theology address, through metaphysics, questions patristic Aristotelian logic had raised but not answered.</p>
+  <p>Aquinas felt free to replace even Augustine's philosophical framework if a better one was available, <em>"because philosophy is not itself necessary for salvation, but if theology uses a philosophy, it should use the best one available."</em> Lonergan later judged this shift helpful on two counts: it gave medieval thinkers the <em>quaestio</em> method to reconcile patristic interpretations into coherent Summae, and it let theology address, through metaphysics, questions patristic Aristotelian logic had raised but not answered.</p>
 
   <h3 class="sec">On the Praxis model — three questions</h3>
-  <ul class="plain">
-    <li><strong>From where</strong> do theologians speak? — a situated standpoint, demanding a changed life, not just new ideas.</li>
-    <li><strong>Why</strong> do theologians speak? — to communicate faith in context and critically evaluate its prior expression.</li>
-    <li><strong>To whom</strong> do theologians speak? — to the "non-person," the poor denied basic dignity.</li>
-  </ul>
-  <p>Two Vatican responses (CDF, 1984 and 1986) appreciated the desire for liberation while warning against uncritical Marxist analysis and treating violence as anything but an absolute last resort.</p>
+  <p><strong>From where</strong> do theologians speak? — a situated standpoint, demanding a changed life, not just new ideas. <strong>Why</strong> do theologians speak? — to communicate faith in context and critically evaluate its prior expression. <strong>To whom</strong> do theologians speak? — to the "non-person," the poor denied basic dignity. Two Vatican responses (CDF, 1984 and 1986) appreciated the desire for liberation while warning against uncritical Marxist analysis and treating violence as anything but an absolute last resort.</p>
 
   <div class="review">
     <h4>Questions for review</h4>
@@ -602,43 +374,19 @@ flowchart LR
   </div>
 </section>
 
-<!-- ================= CHAPTER 5 ================= -->
 <section class="chapter" id="ch5">
   <p class="chap-eyebrow"><span>Chapter 5</span><span class="line"></span><span>Authority</span></p>
   <h2>The Criteria of Christian Theological Reflection</h2>
-  <p class="chap-dek">If so many theologies can be legitimate, where does pluralism end and heterodoxy begin? Raimundo Panikkar's sharpest question: "What is the criterion of the criterion?"</p>
+  <p class="chap-dek">If so many theologies can be legitimate, where does pluralism end and heterodoxy begin? Raimundo Panikkar's sharpest question: <em>"What is the criterion of the criterion?"</em></p>
 
   <h3 class="sec">Three marks of Roman Catholic theology</h3>
   <p>Belief lived from within faith commitment, not detached science &middot; a response to Revelation, carrying a character of givenness &middot; an essential communitarian dimension — reflection of a person within the community.</p>
 
   <h3 class="sec">The Church's threefold task</h3>
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    Ch(("The Church<br/>as sacrament")) --> Ma["Martyria<br/><small>witness</small>"]
-    Ch --> Le["Leitourgia<br/><small>liturgy</small>"]
-    Ch --> Di["Diakonia<br/><small>service to the poor,<br/>the sick, the imprisoned</small>"]
-    style Ch fill:#a9761f22,stroke:#a9761f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 6 — Witness, worship, service: the three tasks the whole People of God shares</p>
-  </div>
+  <p><strong>Martyria</strong> (witness) &middot; <strong>Leitourgia</strong> (liturgy) &middot; <strong>Diakonia</strong> (service to the poor, the sick, the imprisoned) — three tasks the whole People of God shares, not the clergy alone.</p>
 
   <h3 class="sec">The Magisterium — how it is exercised</h3>
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart TB
-    M["Magisterium"] --> Ex["Extraordinary<br/><small>solemn, infallible definition —<br/>ecumenical council or ex cathedra</small>"]
-    M --> Or["Ordinary"]
-    Or --> OU["Ordinary Universal<br/><small>bishops worldwide, unanimously,<br/>teaching definitively or not</small>"]
-    Or --> ON["Ordinary Non-universal<br/><small>individual bishops &middot; episcopal<br/>conferences &middot; the Bishop of Rome</small>"]
-    style Ex fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 7 — Two broad exercises of teaching authority</p>
-  </div>
+  <p>The <strong>Extraordinary Magisterium</strong> makes a solemn, infallible definition — an ecumenical council or an <em>ex cathedra</em> statement. The <strong>Ordinary Magisterium</strong> covers everything else: the <em>Ordinary Universal</em> (bishops worldwide, unanimously, teaching definitively or not) and the <em>Ordinary Non-universal</em> (individual bishops, episcopal conferences, and the Bishop of Rome's own ordinary teaching).</p>
 
   <h3 class="sec">Four gradations of doctrine, four kinds of assent</h3>
   <div class="matrix-wrap">
@@ -662,7 +410,7 @@ flowchart TB
     <li>The knowability of God — rules out agnosticism.</li>
     <li>The partnership of faith and reason — rejects Fideism and Rationalism alike.</li>
     <li>Universality beyond sectarianism — Christ as the one Good News for all humanity.</li>
-    <li>An essential communitarian context — <em>sensus fidelium</em> and ecumenism. <span style="color:var(--gold)">India's own three Individual Churches live this criterion, not as an abstract principle but as daily ecclesial fact.</span></li>
+    <li>An essential communitarian context — <em>sensus fidelium</em> and ecumenism. <span style="color:var(--wine)">India's own three Individual Churches live this criterion, not as an abstract principle but as daily ecclesial fact.</span></li>
     <li>Catholicity in time — real continuity with the past, without freezing into relativism.</li>
     <li>The Sacramental Principle — God's self-communication mediated through created realities.</li>
     <li>Revelation transmitted through Scripture <em>and</em> Tradition together.</li>
@@ -682,55 +430,16 @@ flowchart TB
   </div>
 </section>
 
-<!-- ================= CHAPTER 6 ================= -->
 <section class="chapter" id="ch6">
   <p class="chap-eyebrow"><span>Chapter 6</span><span class="line"></span><span>Application</span></p>
   <h2>Theologizing in the Indian Context</h2>
   <p class="chap-dek">When the Gospel met the Greeks, Romans and Syrians, it became Greek, Roman and Syrian theology. Did the same thing happen when the Gospel met India? Every earlier chapter built toward this question.</p>
 
   <h3 class="sec">A. Three ecclesial families in India</h3>
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart TB
-    IC["Christianity in India<br/><small>~2.5% of the population</small>"]
-    IC --> STC["St Thomas Christians<br/><small>traditioned to 52 AD</small>"]
-    STC --> SM["Syro-Malabar<br/>~5M, Major Archiepiscopal"]
-    STC --> SMC["Syro-Malankara<br/>reunited with Rome 1930"]
-    STC --> Orth["Orthodox/Jacobite &amp;<br/>Mar Thoma streams"]
-    IC --> Lat["Latin Rite<br/><small>from Xavier, 1542 &mdash;<br/>largest, 114 dioceses</small>"]
-    IC --> Prot["Protestant unions<br/><small>CSI 1947 &middot; CNI 1970</small>"]
-    style IC fill:#a9761f22,stroke:#a9761f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 8 — "Hindu in culture, Christian in faith, Syrian in worship" (Placid Podipara) — and the churches that followed</p>
-  </div>
-  <p>The Catholic Church in India is a communion of three Individual Churches — Latin, Syro-Malabar, Syro-Malankara. Many Indian Churches "still carry the label of their foreign origin"; achieving a genuine fecundation between Gospel and Indian culture is named "the greatest challenge of all the Indian Churches."</p>
+  <p><em>"Hindu in culture, Christian in faith, Syrian in worship"</em> (Placid Podipara). The <strong>St Thomas Christians</strong>, traditioned to 52 AD, gave rise to the Syro-Malabar (~5M, Major Archiepiscopal), the Syro-Malankara (reunited with Rome, 1930), and the Orthodox/Jacobite and Mar Thoma streams. The <strong>Latin Rite</strong>, from Xavier's arrival in 1542, is the largest today, 114 dioceses. The <strong>Protestant unions</strong> — CSI (1947) and CNI (1970) — complete the picture. Christians remain about 2.5% of India's population. The Catholic Church in India is a communion of three Individual Churches — Latin, Syro-Malabar, Syro-Malankara. Many Indian Churches "still carry the label of their foreign origin"; achieving a genuine fecundation between Gospel and Indian culture is named "the greatest challenge of all the Indian Churches."</p>
 
   <h3 class="sec">Two streams converging</h3>
-  <div class="diagram">
-    <div class="diagram-scroll">
-<pre class="mermaid">
-flowchart LR
-    subgraph S1["Stream 1 — Culture, Philosophy, Religion"]
-      direction TB
-      s1a["St Thomas Christians<br/>de Nobili's accommodatio"]
-      s1b["Vedanta pioneers:<br/>Upadhyaya, Appasamy,<br/>Chenchaiah, Panikkar"]
-      s1c["Christian Ashram Movement<br/>Monchanin, Abhishiktananda,<br/>Bede Griffiths"]
-    end
-    subgraph S2["Stream 2 — Socio-Economic &amp; Political"]
-      direction TB
-      s2a["Devanandan, M.M. Thomas:<br/>Christ &amp; new humanity"]
-      s2b["Kappen, Rayan,<br/>Soares-Prabhu: Indian<br/>Liberation Theology"]
-      s2c["Dalit Theology &amp;<br/>Women's theology"]
-    end
-    S1 --> Conv(("Integrated<br/>Indian Theology"))
-    S2 --> Conv
-    style Conv fill:#9c2b1f14,stroke:#9c2b1f,color:#ffffff
-</pre>
-    </div>
-    <p class="cap">Fig. 9 — The Chapter's own convergence: not opposed, but increasingly related</p>
-  </div>
+  <p>One stream works from <strong>culture, philosophy and religion</strong>: the St Thomas Christians and de Nobili's <em>accommodatio</em>; the Vedanta pioneers — Upadhyaya, Appasamy, Chenchaiah, Panikkar; the Christian Ashram Movement — Monchanin, Abhishiktananda, Bede Griffiths. The other works from <strong>socio-economic and political realities</strong>: Devanandan and M.M. Thomas on Christ and the new humanity; Kappen, Rayan and Soares-Prabhu's Indian Liberation Theology; Dalit Theology and Women's theology. The chapter's own convergence: these two streams are increasingly seen as related, not opposed, and an integrated Indian theology is slowly emerging.</p>
 
   <h3 class="sec">B. Cultural, philosophical, religious horizons</h3>
   <p>A cosmotheandric view of reality — cosmic, divine and human as one. Human life understood through the four <em>purusharthas</em> (artha, kama, dharma, moksha) and four <em>ashramas</em> (brahmachari, grahastha, vanaprastha, sanyasi). Six classical <em>darshanas</em>: Nyaya, Vaisheshika, Sankhya, Yoga, Mimamsa, and Vedanta — the last, in its Advaita form, teaching Brahman alone as fully real, realized as Saccidananda, Being-Consciousness-Bliss.</p>
@@ -742,7 +451,7 @@ flowchart LR
   <blockquote>"Where do we find the God of the Bible today? Is He not with the Dalits? Yes, He is the God of the Dalits."</blockquote>
 
   <h3 class="sec">D. Convergence, not resolution</h3>
-  <p>The two streams are increasingly seen as related, not opposed. Interreligious dialogue has shifted from debating doctrines toward the "dialogue of life" — shared concern for poverty, illiteracy, unemployment, women's issues, the environment. Inculturation remains vital but cannot be top-down "mere translation"; it happens naturally when the Church becomes genuinely involved in people's real lives. Signs of hope: the Indian Theological Association, journals such as <em>Jeevadhara</em>, <em>Vidyajyoti</em> and <em>Bible Bhashyam</em>, and growing theology departments in secular universities.</p>
+  <p>Interreligious dialogue has shifted from debating doctrines toward the "dialogue of life" — shared concern for poverty, illiteracy, unemployment, women's issues, the environment. Inculturation remains vital but cannot be top-down "mere translation"; it happens naturally when the Church becomes genuinely involved in people's real lives. Signs of hope: the Indian Theological Association, journals such as <em>Jeevadhara</em>, <em>Vidyajyoti</em> and <em>Bible Bhashyam</em>, and growing theology departments in secular universities.</p>
 
   <div class="review">
     <h4>Questions for review</h4>
@@ -759,26 +468,5 @@ flowchart LR
 </main>
 
 <footer class="page">
-  Pilot study page — <em>BTh Introduction to Theology</em>, 6 chapters, built from the class notes in <span style="font-family:ui-monospace,monospace">BTh-Introduction-to-Theology</span>. Diagrams trace the chapters' own structure (positions, sources, periods, models, gradations, streams) rather than adding external schema. If this format works, the same treatment can extend to Ecclesiology, Vatican II, and the rest of the archive.
+  Study guide — <em>BTh Introduction to Theology</em>, 6 chapters, built from the class notes in <span style="font-family:ui-monospace,monospace">BTh-Introduction-to-Theology</span>. Text only, no diagrams — hierarchy carried by heading levels, bold, italic and colour.
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'dark',
-      themeVariables: {
-        fontSize: '26px',
-        primaryColor: '#221c14',
-        primaryTextColor: '#ffffff',
-        primaryBorderColor: '#ffd27a',
-        lineColor: '#ffd27a',
-        textColor: '#ffffff',
-        background: '#14100b',
-        mainBkg: '#221c14',
-        nodeTextColor: '#ffffff'
-      }
-    });
-  }
-</script>
